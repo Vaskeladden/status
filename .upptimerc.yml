@@ -3,16 +3,16 @@ repo: vaskeladden-status
 
 sites:
   - name: Admin
-    url: https://admin.vaskeladden.no/health
+    url: https://admin.vaskeladden.com/health
   - name: Meme
-    url: https://meme.vaskeladden.no/health
+    url: https://meme.vaskeladden.com/health
   - name: Web
-    url: https://web.vaskeladden.no/health
+    url: https://web.vaskeladden.com/health
   - name: Dashboard
-    url: https://dashboard.vaskeladden.no/health
+    url: https://dashboard.vaskeladden.com/health
 
 status-website:
-  cname: status.vaskeladden.no
+  cname: status.vaskeladden.com
   name: Vaskeladden Status
   introTitle: "**Vaskeladden** service status"
   introMessage: "Real-time availability and response time monitoring for Vaskeladden services."
