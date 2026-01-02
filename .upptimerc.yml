@@ -1,0 +1,41 @@
+owner: Vaskeladden
+repo: vaskeladden-status
+
+sites:
+  - name: Admin
+    url: https://admin.vaskeladden.no/health
+  - name: Meme
+    url: https://meme.vaskeladden.no/health
+  - name: Web
+    url: https://web.vaskeladden.no/health
+  - name: Dashboard
+    url: https://dashboard.vaskeladden.no/health
+
+status-website:
+  cname: status.vaskeladden.no
+  name: Vaskeladden Status
+  introTitle: "**Vaskeladden** service status"
+  introMessage: "Real-time availability and response time monitoring for Vaskeladden services."
+  theme: light
+  navbar:
+    - title: Status
+      href: /
+    - title: GitHub
+      href: https://github.com/$OWNER/$REPO
+
+# Notifications (uncomment and configure after setting up Slack webhook)
+# notifications:
+#   - type: slack
+#     channel: alerts
+
+# Incident management
+assignees:
+  - Habitats
+
+# History settings
+commitMessages:
+  commitAuthorName: "Upptime Bot"
+  commitAuthorEmail: "upptime@vaskeladden.no"
+
+# CI settings
+runner: ubuntu-latest

@@ -1,0 +1,22 @@
+# Do not edit - auto-updated by Upptime
+name: Update Template CI
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+  repository_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Update template
+        uses: upptime/uptime-monitor@v1.41.0
+        with:
+          command: "update-template"
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

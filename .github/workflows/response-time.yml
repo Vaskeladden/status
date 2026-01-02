@@ -1,0 +1,22 @@
+# Do not edit - auto-updated by Upptime
+name: Response Time CI
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+jobs:
+  response-time:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Track response time
+        uses: upptime/uptime-monitor@v1.41.0
+        with:
+          command: "response-time"
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
