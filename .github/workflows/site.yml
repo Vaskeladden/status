@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.GH_PAT }}
           fetch-depth: 0
       - name: Generate site
         uses: upptime/uptime-monitor@v1.41.0

@@ -13,6 +13,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
       - name: Check endpoint status
         uses: upptime/uptime-monitor@v1.41.0
         with:
