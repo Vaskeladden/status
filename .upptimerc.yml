@@ -2,20 +2,16 @@ owner: Vaskeladden
 repo: vaskeladden-status
 
 sites:
+  # IAP-protected services use direct Cloud Run URLs to bypass IAP for health checks
   - name: Admin
-    url: https://admin.vaskeladden.com/health
-    expectedStatusCodes:
-      - 200
-      - 302  # IAP redirect is expected
+    url: https://admin-app-tixlcgtqna-lz.a.run.app/health
+  - name: Dashboard
+    url: https://dashboard-app-tixlcgtqna-lz.a.run.app/health
+  # Public services use custom domains
   - name: Meme
     url: https://meme.vaskeladden.com/health
   - name: Web
     url: https://web.vaskeladden.com/health
-  - name: Dashboard
-    url: https://dashboard.vaskeladden.com/health
-    expectedStatusCodes:
-      - 200
-      - 302  # IAP redirect is expected
   - name: Status
     url: https://status.vaskeladden.com
 
