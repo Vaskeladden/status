@@ -23,6 +23,7 @@ Visit [status.vaskeladden.no](https://status.vaskeladden.no) to view the live st
 ## Configuration
 
 Edit `.upptimerc.yml` to:
+
 - Add/remove monitored services
 - Configure notification channels
 - Customize the status page appearance
