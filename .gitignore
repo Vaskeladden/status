@@ -1,0 +1,3 @@
+# Claude context files (keep root, ignore subdirectories)
+**/CLAUDE.md
+!/CLAUDE.md
