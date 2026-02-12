@@ -33,10 +33,9 @@ status-website:
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 
-# Notifications (uncomment and configure after setting up Slack webhook)
-# notifications:
-#   - type: slack
-#     channel: alerts
+# Notifications: Configured via GitHub Secrets
+# Required secrets: NOTIFICATION_SLACK=true, NOTIFICATION_SLACK_WEBHOOK=true, NOTIFICATION_SLACK_WEBHOOK_URL=<url>
+# See: https://upptime.js.org/docs/notifications
 
 # Incident management
 assignees:
