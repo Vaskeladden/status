@@ -1,3 +1,6 @@
+# AUTO-GENERATED from app-access.json — do not edit manually
+# Run: python scripts/generate-status-config.py
+
 owner: Vaskeladden
 repo: vaskeladden-status
 
@@ -7,15 +10,51 @@ sites:
     url: https://admin.vaskeladden.com/health
     expectedStatusCodes:
       - 200
-      - 302  # IAP redirect confirms service is up
+      - 302
+  - name: Backup
+    url: https://backup.vaskeladden.com/health
+    expectedStatusCodes:
+      - 200
+      - 302
   - name: Dashboard
     url: https://dashboard.vaskeladden.com/health
     expectedStatusCodes:
       - 200
-      - 302  # IAP redirect confirms service is up
+      - 302
+  - name: Email
+    url: https://email.vaskeladden.com/health
+    expectedStatusCodes:
+      - 200
+      - 302
+  - name: Floorplan
+    url: https://floorplan.vaskeladden.com/health
+    expectedStatusCodes:
+      - 200
+      - 302
+  - name: Prospector
+    url: https://prospector.vaskeladden.com/health
+    expectedStatusCodes:
+      - 200
+      - 302
+  - name: Sales
+    url: https://sales.vaskeladden.com/health
+    expectedStatusCodes:
+      - 200
+      - 302
+  - name: SMS
+    url: https://sms.vaskeladden.com/health
+    expectedStatusCodes:
+      - 200
+      - 302
   # Public services
+  - name: Auth
+    url: https://auth.vaskeladden.com/health
+  - name: Ingest
+    url: https://ingest.vaskeladden.com/health
   - name: Meme
     url: https://meme.vaskeladden.com/health
+  - name: Quiz
+    url: https://quiz.vaskeladden.com/health
   - name: Web
     url: https://web.vaskeladden.com/health
   - name: Status
