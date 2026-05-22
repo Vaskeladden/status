@@ -152,18 +152,20 @@
     "url": "https://auth.vaskeladden.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/auth.vaskeladden.com.ico",
     "slug": "auth",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 342,
-    "timeDay": 320,
-    "timeWeek": 335,
-    "timeMonth": 343,
-    "timeYear": 342,
-    "dailyMinutesDown": {}
+    "time": 340,
+    "timeDay": 282,
+    "timeWeek": 324,
+    "timeMonth": 339,
+    "timeYear": 340,
+    "dailyMinutesDown": {
+      "2026-05-22": 0
+    }
   },
   {
     "name": "Ingest",
@@ -206,18 +208,20 @@
     "url": "https://quiz.vaskeladden.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/quiz.vaskeladden.com.ico",
     "slug": "quiz",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.98%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 359,
-    "timeDay": 280,
-    "timeWeek": 415,
-    "timeMonth": 360,
-    "timeYear": 359,
-    "dailyMinutesDown": {}
+    "time": 370,
+    "timeDay": 701,
+    "timeWeek": 504,
+    "timeMonth": 384,
+    "timeYear": 370,
+    "dailyMinutesDown": {
+      "2026-05-22": 0
+    }
   },
   {
     "name": "Web",
@@ -244,8 +248,8 @@
     "slug": "status",
     "status": "up",
     "uptime": "99.90%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
+    "uptimeDay": "99.94%",
+    "uptimeWeek": "99.99%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.90%",
     "time": 192,
@@ -254,6 +258,7 @@
     "timeMonth": 181,
     "timeYear": 192,
     "dailyMinutesDown": {
+      "2026-05-22": 1,
       "2026-02-25": 208
     }
   }
