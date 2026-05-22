@@ -1,7 +1,7 @@
 url: https://auth.vaskeladden.com/health
-status: down
-code: 429
-responseTime: 243
-lastUpdated: 2026-05-22T15:38:24.599Z
+status: up
+code: 200
+responseTime: 1101
+lastUpdated: 2026-05-22T16:32:39.927Z
 startTime: 2026-03-17T10:32:27.118Z
 generator: Upptime <https://github.com/upptime/upptime>
