@@ -81,18 +81,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/floorplan.vaskeladden.com.ico",
     "slug": "floorplan",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.96%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "99.98%",
+    "uptimeDay": "97.86%",
+    "uptimeWeek": "99.69%",
+    "uptimeMonth": "99.93%",
+    "uptimeYear": "99.98%",
     "time": 620,
     "timeDay": 582,
     "timeWeek": 559,
     "timeMonth": 705,
     "timeYear": 620,
     "dailyMinutesDown": {
-      "2026-06-25": 1
+      "2026-06-25": 31
     }
   },
   {
@@ -154,20 +154,20 @@
     "url": "https://auth.vaskeladden.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/auth.vaskeladden.com.ico",
     "slug": "auth",
-    "status": "down",
-    "uptime": "99.96%",
-    "uptimeDay": "99.98%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "99.96%",
-    "time": 352,
-    "timeDay": 308,
-    "timeWeek": 409,
-    "timeMonth": 362,
-    "timeYear": 352,
+    "status": "up",
+    "uptime": "99.94%",
+    "uptimeDay": "97.89%",
+    "uptimeWeek": "99.70%",
+    "uptimeMonth": "99.93%",
+    "uptimeYear": "99.94%",
+    "time": 350,
+    "timeDay": 246,
+    "timeWeek": 381,
+    "timeMonth": 357,
+    "timeYear": 350,
     "dailyMinutesDown": {
       "2026-05-22": 54,
-      "2026-06-25": 0
+      "2026-06-25": 30
     }
   },
   {
@@ -250,11 +250,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/status.vaskeladden.com.ico",
     "slug": "status",
     "status": "up",
-    "uptime": "99.94%",
-    "uptimeDay": "99.95%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "99.94%",
+    "uptime": "99.92%",
+    "uptimeDay": "97.85%",
+    "uptimeWeek": "99.69%",
+    "uptimeMonth": "99.93%",
+    "uptimeYear": "99.92%",
     "time": 188,
     "timeDay": 219,
     "timeWeek": 167,
@@ -263,7 +263,7 @@
     "dailyMinutesDown": {
       "2026-02-25": 104,
       "2026-05-22": 54,
-      "2026-06-25": 1
+      "2026-06-25": 31
     }
   }
 ]
