@@ -1,36 +1,53 @@
 {
-  "internalChecksAsSuccess": true,
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "rebaseWhen": "conflicted",
-  "minimumReleaseAge": "14 days",
-  "automerge": true,
-  "platformAutomerge": true,
-  "schedule": ["before 9am on monday"],
-  "timezone": "Europe/Oslo",
-  "labels": ["dependencies"],
-  "prConcurrentLimit": 10,
-  "prHourlyLimit": 5,
+  "extends": [
+    "config:recommended"
+  ],
+  "labels": [
+    "dependencies"
+  ],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 6am on the first day of the month"]
+    "schedule": [
+      "before 6am on the first day of the month"
+    ]
   },
+  "minimumReleaseAge": "14 days",
   "packageRules": [
     {
       "description": "One grouped PR for all non-major updates — auto-merges without the app owner doing anything",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "dependencies (non-major)",
-      "groupSlug": "deps-nonmajor"
+      "groupSlug": "deps-nonmajor",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ]
     },
     {
       "description": "Major updates: one PR each, still automerge, labeled so they are easy to spot",
-      "matchUpdateTypes": ["major"],
-      "labels": ["dependencies", "major"]
+      "labels": [
+        "dependencies",
+        "major"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ]
     }
   ],
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 5,
+  "rebaseWhen": "conflicted",
+  "schedule": [
+    "before 9am on monday"
+  ],
+  "timezone": "Europe/Oslo",
   "vulnerabilityAlerts": {
     "enabled": true,
-    "labels": ["security"],
+    "labels": [
+      "security"
+    ],
     "minimumReleaseAge": "0 days"
   }
 }
