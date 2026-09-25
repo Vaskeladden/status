@@ -155,11 +155,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/auth.vaskeladden.com.ico",
     "slug": "auth",
     "status": "down",
-    "uptime": "99.97%",
-    "uptimeDay": "99.91%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "99.97%",
+    "uptime": "99.96%",
+    "uptimeDay": "98.34%",
+    "uptimeWeek": "99.76%",
+    "uptimeMonth": "99.95%",
+    "uptimeYear": "99.96%",
     "time": 382,
     "timeDay": 573,
     "timeWeek": 614,
@@ -168,7 +168,7 @@
     "dailyMinutesDown": {
       "2026-05-22": 54,
       "2026-06-25": 30,
-      "2026-09-25": 1
+      "2026-09-25": 24
     }
   },
   {
@@ -177,18 +177,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/ingest.vaskeladden.com.ico",
     "slug": "ingest",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.92%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "99.99%",
+    "uptimeDay": "98.36%",
+    "uptimeWeek": "99.77%",
+    "uptimeMonth": "99.95%",
+    "uptimeYear": "99.99%",
     "time": 401,
     "timeDay": 603,
     "timeWeek": 569,
     "timeMonth": 532,
     "timeYear": 401,
     "dailyMinutesDown": {
-      "2026-09-25": 1
+      "2026-09-25": 24
     }
   },
   {
@@ -196,19 +196,19 @@
     "url": "https://meme.vaskeladden.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/meme.vaskeladden.com.ico",
     "slug": "meme",
-    "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.94%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 360,
-    "timeDay": 230,
-    "timeWeek": 262,
-    "timeMonth": 345,
-    "timeYear": 360,
+    "status": "up",
+    "uptime": "99.99%",
+    "uptimeDay": "98.42%",
+    "uptimeWeek": "99.77%",
+    "uptimeMonth": "99.95%",
+    "uptimeYear": "99.99%",
+    "time": 401,
+    "timeDay": 3917,
+    "timeWeek": 1487,
+    "timeMonth": 677,
+    "timeYear": 401,
     "dailyMinutesDown": {
-      "2026-09-25": 1
+      "2026-09-25": 23
     }
   },
   {
@@ -216,20 +216,20 @@
     "url": "https://quiz.vaskeladden.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/quiz.vaskeladden.com.ico",
     "slug": "quiz",
-    "status": "down",
-    "uptime": "99.98%",
-    "uptimeDay": "99.96%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "99.98%",
-    "time": 364,
-    "timeDay": 203,
-    "timeWeek": 346,
-    "timeMonth": 382,
-    "timeYear": 364,
+    "status": "up",
+    "uptime": "99.97%",
+    "uptimeDay": "98.42%",
+    "uptimeWeek": "99.77%",
+    "uptimeMonth": "99.95%",
+    "uptimeYear": "99.97%",
+    "time": 426,
+    "timeDay": 4286,
+    "timeWeek": 1691,
+    "timeMonth": 748,
+    "timeYear": 426,
     "dailyMinutesDown": {
       "2026-05-22": 54,
-      "2026-09-25": 1
+      "2026-09-25": 23
     }
   },
   {
@@ -238,18 +238,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/web.vaskeladden.com.ico",
     "slug": "web",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.97%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "99.99%",
+    "uptimeDay": "98.41%",
+    "uptimeWeek": "99.77%",
+    "uptimeMonth": "99.95%",
+    "uptimeYear": "99.99%",
     "time": 378,
     "timeDay": 237,
     "timeWeek": 247,
     "timeMonth": 338,
     "timeYear": 378,
     "dailyMinutesDown": {
-      "2026-09-25": 0
+      "2026-09-25": 23
     }
   },
   {
@@ -259,9 +259,9 @@
     "slug": "status",
     "status": "up",
     "uptime": "99.94%",
-    "uptimeDay": "99.90%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "98.33%",
+    "uptimeWeek": "99.76%",
+    "uptimeMonth": "99.95%",
     "uptimeYear": "99.94%",
     "time": 193,
     "timeDay": 166,
@@ -272,7 +272,7 @@
       "2026-02-25": 104,
       "2026-05-22": 54,
       "2026-06-25": 61,
-      "2026-09-25": 1
+      "2026-09-25": 24
     }
   }
 ]
