@@ -6,7 +6,7 @@
 # Your changes will be overwritten when the Upptime template updates (by default, weekly)
 # Instead, change .upptimerc.yml configuration and the workflows will be generated accordingly.
 #
-# 🔼 Upptime @v1.44.1
+# 🔼 Upptime @e1172e0cdb86963688c2d6e83b6261c2156b98f6
 # GitHub-powered open-source uptime monitor and status page by Anand Chowdhary
 
 # * Source: https://github.com/upptime/upptime
@@ -27,6 +27,7 @@ on:
 concurrency:
   group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime
   cancel-in-progress: false
+  queue: max
 jobs:
   release:
     name: Build and deploy site
@@ -34,6 +35,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     env:
       GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      UPTIME_MONITOR_REF: "e1172e0cdb86963688c2d6e83b6261c2156b98f6"
     steps:
       - name: Create GitHub App token
         id: app_token
@@ -52,7 +54,7 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
           token: ${{ steps.app_token.outputs.token || secrets.GH_PAT || github.token }}
       - name: Generate site
-        uses: upptime/uptime-monitor@v1.44.1
+        uses: Vaskeladden/uptime-monitor@e1172e0cdb86963688c2d6e83b6261c2156b98f6
         with:
           command: "site"
         env:
