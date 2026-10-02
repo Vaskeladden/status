@@ -83,7 +83,7 @@ jobs:
         if: steps.dispatch_graphs.outcome == 'failure'
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
       - name: Generate graphs directly if dispatch fails
         if: steps.dispatch_graphs.outcome == 'failure'
         uses: Vaskeladden/uptime-monitor@e1172e0cdb86963688c2d6e83b6261c2156b98f6

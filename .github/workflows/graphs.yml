@@ -52,7 +52,7 @@ jobs:
       - name: Setup Node.js for graphs
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
       - name: Generate graphs
         uses: Vaskeladden/uptime-monitor@e1172e0cdb86963688c2d6e83b6261c2156b98f6
         with:
