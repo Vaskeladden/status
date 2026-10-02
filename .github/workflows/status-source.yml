@@ -1,0 +1,60 @@
+name: Status source verification
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Status Workflow Pin
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Filled with the actual protected squash commit before the bootstrap PR.
+      GENERATOR_SHA: e1172e0cdb86963688c2d6e83b6261c2156b98f6
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Verify immutable pins belong to their maintained branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+          pins = [
+              ('Vaskeladden/uptime-monitor', os.environ['GENERATOR_SHA']),
+              ('upptime/updates', 'e630cfe3652fd1811f3f37a9036efa4cf1acfa0a'),
+          ]
+          for repository, sha in pins:
+              if not re.fullmatch('[0-9a-f]{40}', sha):
+                  raise SystemExit('Action pin must be a full immutable SHA')
+              proof = json.loads(subprocess.check_output([
+                  'gh', 'api', f'repos/{repository}/compare/master...{sha}',
+              ], text=True))
+              if proof.get('status') not in {'behind', 'identical'} or proof.get('merge_base_commit', {}).get('sha') != sha:
+                  raise SystemExit(f'{repository}: action pin is not on maintained master')
+          PY
+      - uses: actions/checkout@v6
+        with:
+          repository: Vaskeladden/uptime-monitor
+          ref: ${{ env.GENERATOR_SHA }}
+          path: .status-generator
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Build the pure generator
+        working-directory: .status-generator
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+      - name: Compare every generated workflow
+        run: |
+          node .status-generator/tooling/generate-status-workflows.cjs \
+            .upptimerc.yml "$RUNNER_TEMP/status-workflows" "$GENERATOR_SHA"
+          for workflow in graphs response-time setup site summary update-template updates uptime; do
+            diff -u "$RUNNER_TEMP/status-workflows/$workflow.yml" ".github/workflows/$workflow.yml"
+          done
