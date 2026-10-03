@@ -15,7 +15,7 @@ jobs:
       # Filled with the actual protected squash commit before the bootstrap PR.
       GENERATOR_SHA: e1172e0cdb86963688c2d6e83b6261c2156b98f6
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Verify immutable pins belong to their maintained branches
@@ -37,7 +37,7 @@ jobs:
               if proof.get('status') not in {'behind', 'identical'} or proof.get('merge_base_commit', {}).get('sha') != sha:
                   raise SystemExit(f'{repository}: action pin is not on maintained master')
           PY
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: Vaskeladden/uptime-monitor
           ref: ${{ env.GENERATOR_SHA }}
