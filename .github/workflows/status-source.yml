@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      # Filled with the actual protected squash commit before the bootstrap PR.
-      GENERATOR_SHA: e1172e0cdb86963688c2d6e83b6261c2156b98f6
+      # Protected uptime-monitor generator merge.
+      GENERATOR_SHA: 5f2864eacc8f2c9177650822a0c7dfbb9987c0e6
     steps:
       - uses: actions/checkout@v6
         with:
@@ -55,6 +55,24 @@ jobs:
         run: |
           node .status-generator/tooling/generate-status-workflows.cjs \
             .upptimerc.yml "$RUNNER_TEMP/status-workflows" "$GENERATOR_SHA"
-          for workflow in graphs response-time setup site summary update-template updates uptime; do
-            diff -u "$RUNNER_TEMP/status-workflows/$workflow.yml" ".github/workflows/$workflow.yml"
-          done
+          node - "$RUNNER_TEMP/status-workflows" <<'JAVASCRIPT'
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const yaml = require('./.status-generator/node_modules/js-yaml');
+          const source = fs.readFileSync('.github/workflows/status-source.yml', 'utf8');
+          const verifier = yaml.load(source);
+          assert.deepEqual(verifier.on, {pull_request: null});
+          assert.deepEqual(verifier.permissions, {contents: 'read'});
+          assert.doesNotMatch(source, /secrets\s*(?:\.|\[)/i);
+          for (const job of Object.values(verifier.jobs)) {
+            if (job.permissions !== undefined) assert.deepEqual(job.permissions, {contents: 'read'});
+          }
+          const generated = process.argv[2];
+          const yamlFiles = directory => fs.readdirSync(directory).filter(name => /\.ya?ml$/i.test(name)).sort();
+          const expected = yamlFiles(generated);
+          assert.deepEqual(yamlFiles('.github/workflows'), [...expected, 'status-source.yml'].sort());
+          for (const name of expected) {
+            assert.deepEqual(fs.readFileSync(path.join(generated, name)), fs.readFileSync(path.join('.github/workflows', name)), `${name} differs from its pinned generator`);
+          }
+          JAVASCRIPT

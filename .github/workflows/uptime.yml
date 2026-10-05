@@ -6,7 +6,7 @@
 # Your changes will be overwritten when the Upptime template updates (by default, weekly)
 # Instead, change .upptimerc.yml configuration and the workflows will be generated accordingly.
 #
-# 🔼 Upptime @e1172e0cdb86963688c2d6e83b6261c2156b98f6
+# 🔼 Upptime @5f2864eacc8f2c9177650822a0c7dfbb9987c0e6
 # GitHub-powered open-source uptime monitor and status page by Anand Chowdhary
 
 # * Source: https://github.com/upptime/upptime
@@ -14,6 +14,31 @@
 # * More by Anand Chowdhary: https://anandchowdhary.com
 
 
+env:
+  AUTOMATION_CONTRACT: >-
+    {
+      "id": "gha.status.uptime-probe",
+      "title": "Check whether public services respond",
+      "description": "Checks whether our public services respond and records any downtime.",
+      "owner": "platform",
+      "criticality": "critical",
+      "max_lateness_hours": 2.0,
+      "repair_policy": "human-only",
+      "legs": [
+        {
+          "id": "gha-status-uptime-yml",
+          "required_proof": "run",
+          "adapter": "github-actions-run",
+          "expected_state": "active",
+          "repair_policy": "human-only"
+        }
+      ],
+      "architecture": {
+        "recipe": "github-workflow",
+        "disposition": "exception",
+        "note": "Upptime in Vaskeladden/status is the outside-GCP probe and public status page; its value is independence from GCP, so it stays on GitHub (owner platform). GitHub may delay its 5-minute cron, so alerting must not rely on it alone: Terraform Cloud Monitoring uptime checks with content matching are planned for the critical customer-facing paths."
+      }
+    }
 name: Uptime CI
 on:
   schedule:
@@ -31,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
-      UPTIME_MONITOR_REF: "e1172e0cdb86963688c2d6e83b6261c2156b98f6"
+      UPTIME_MONITOR_REF: "5f2864eacc8f2c9177650822a0c7dfbb9987c0e6"
     steps:
       - name: Create GitHub App token
         id: app_token
@@ -50,7 +75,7 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
           token: ${{ steps.app_token.outputs.token || secrets.GH_PAT || github.token }}
       - name: Check endpoint status
-        uses: Vaskeladden/uptime-monitor@e1172e0cdb86963688c2d6e83b6261c2156b98f6
+        uses: Vaskeladden/uptime-monitor@5f2864eacc8f2c9177650822a0c7dfbb9987c0e6
         with:
           command: "update"
         env:
