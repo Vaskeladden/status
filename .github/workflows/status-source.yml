@@ -55,16 +55,24 @@ jobs:
         run: |
           node .status-generator/tooling/generate-status-workflows.cjs \
             .upptimerc.yml "$RUNNER_TEMP/status-workflows" "$GENERATOR_SHA"
-          python3 - "$RUNNER_TEMP/status-workflows" <<'PYTHON'
-          from pathlib import Path
-          import sys
-          generated = Path(sys.argv[1])
-          committed = Path(".github/workflows")
-          expected = {p.name for p in generated.iterdir() if p.suffix in {".yml", ".yaml"}}
-          actual = {p.name for p in committed.iterdir() if p.suffix in {".yml", ".yaml"}}
-          if actual != expected | {"status-source.yml"}:
-              raise SystemExit(f"Workflow ownership mismatch: expected {sorted(expected | {'status-source.yml'})}, got {sorted(actual)}")
-          for name in sorted(expected):
-              if (generated / name).read_bytes() != (committed / name).read_bytes():
-                  raise SystemExit(f"{name} differs from its pinned generator")
-          PYTHON
+          node - "$RUNNER_TEMP/status-workflows" <<'JAVASCRIPT'
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const yaml = require('./.status-generator/node_modules/js-yaml');
+          const source = fs.readFileSync('.github/workflows/status-source.yml', 'utf8');
+          const verifier = yaml.load(source);
+          assert.deepEqual(verifier.on, {pull_request: null});
+          assert.deepEqual(verifier.permissions, {contents: 'read'});
+          assert.doesNotMatch(source, /secrets\s*(?:\.|\[)/i);
+          for (const job of Object.values(verifier.jobs)) {
+            if (job.permissions !== undefined) assert.deepEqual(job.permissions, {contents: 'read'});
+          }
+          const generated = process.argv[2];
+          const yamlFiles = directory => fs.readdirSync(directory).filter(name => /\.ya?ml$/i.test(name)).sort();
+          const expected = yamlFiles(generated);
+          assert.deepEqual(yamlFiles('.github/workflows'), [...expected, 'status-source.yml'].sort());
+          for (const name of expected) {
+            assert.deepEqual(fs.readFileSync(path.join(generated, name)), fs.readFileSync(path.join('.github/workflows', name)), `${name} differs from its pinned generator`);
+          }
+          JAVASCRIPT
