@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "mode": "full",
+  "forkProcessing": "enabled",
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "platformAutomerge": false,
+  "internalChecksAsSuccess": true,
+  "ignoreTests": false,
+  "minimumReleaseAge": "14 days",
+  "npmrc": "allow-remote=all",
+  "npmrcMerge": true,
+  "timezone": "Europe/Oslo",
+  "packageRules": [
+    {
+      "matchRepositories": [
+        "Vaskeladden/status"
+      ],
+      "matchPackageNames": [
+        "actions/checkout",
+        "actions/setup-node"
+      ],
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    }
+  ]
+}
