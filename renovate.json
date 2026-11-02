@@ -55,9 +55,6 @@
   "prConcurrentLimit": 10,
   "prHourlyLimit": 5,
   "rebaseWhen": "conflicted",
-  "schedule": [
-    "before 9am on monday"
-  ],
   "vulnerabilityAlerts": {
     "enabled": true,
     "labels": [
