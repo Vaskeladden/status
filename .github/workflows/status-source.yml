@@ -45,7 +45,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "26"
       - name: Build the pure generator
         working-directory: .status-generator
         run: |
