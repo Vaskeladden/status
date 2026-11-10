@@ -12,6 +12,9 @@
   "internalChecksAsSuccess": true,
   "ignoreTests": false,
   "minimumReleaseAge": "14 days",
+  "vulnerabilityAlerts": {
+    "minimumReleaseAge": "1 hour"
+  },
   "npmrc": "allow-remote=all",
   "npmrcMerge": true,
   "timezone": "Europe/Oslo",
