@@ -17,6 +17,9 @@
   },
   "npmrc": "allow-remote=all",
   "npmrcMerge": true,
+  "toolSettings": {
+    "nodeMaxMemory": 1536
+  },
   "timezone": "Europe/Oslo",
   "packageRules": [
     {
@@ -30,8 +33,14 @@
       "automerge": false
     },
     {
+      "matchManagers": [
+        "npm"
+      ],
       "matchUpdateTypes": [
         "lockFileMaintenance"
+      ],
+      "matchJsonata": [
+        "$exists(managerData.npmLock) or ($not($exists(managerData.pnpmLockFile)) and $not($exists(managerData.yarnLock)))"
       ],
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
