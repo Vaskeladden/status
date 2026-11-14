@@ -11,6 +11,7 @@
   "platformAutomerge": false,
   "internalChecksAsSuccess": true,
   "ignoreTests": false,
+  "rebaseWhen": "conflicted",
   "minimumReleaseAge": "14 days",
   "vulnerabilityAlerts": {
     "minimumReleaseAge": "1 hour"
