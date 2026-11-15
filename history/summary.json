@@ -234,8 +234,8 @@
   },
   {
     "name": "Web",
-    "url": "https://web.vaskeladden.com/health",
-    "icon": "https://icons.duckduckgo.com/ip3/web.vaskeladden.com.ico",
+    "url": "https://vaskeladden.com/health",
+    "icon": "https://icons.duckduckgo.com/ip3/vaskeladden.com.ico",
     "slug": "web",
     "status": "up",
     "uptime": "99.99%",

@@ -56,7 +56,7 @@ sites:
   - name: Quiz
     url: https://quiz.vaskeladden.com/health
   - name: Web
-    url: https://web.vaskeladden.com/health
+    url: https://vaskeladden.com/health
   - name: Status
     url: https://status.vaskeladden.com
 
