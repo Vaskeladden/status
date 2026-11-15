@@ -15,7 +15,7 @@ jobs:
       # Protected uptime-monitor generator merge.
       GENERATOR_SHA: 5f2864eacc8f2c9177650822a0c7dfbb9987c0e6
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Verify immutable pins belong to their maintained branches
@@ -37,7 +37,7 @@ jobs:
               if proof.get('status') not in {'behind', 'identical'} or proof.get('merge_base_commit', {}).get('sha') != sha:
                   raise SystemExit(f'{repository}: action pin is not on maintained master')
           PY
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: Vaskeladden/uptime-monitor
           ref: ${{ env.GENERATOR_SHA }}
